@@ -17,11 +17,11 @@ jobs:
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.EC2_HOST }}
-        username: ec2-user
+        username: ubuntu
         key: ${{ secrets.EC2_KEY }}
         port: 22
         script: |
-          cd /home/ec2-user
+          cd /home/ubuntu
           git pull origin main
           docker-compose down
           docker-compose up -d --build
